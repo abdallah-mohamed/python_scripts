@@ -1,0 +1,60 @@
+"""
+5) Write a regular expression to extract the phone numbers from the text below.
+Phone numbers are in the following formats: [Country code][Separator][Area code]
+[Separator][Grouping number][Separator][Subscriber number]
+C# Exam / Page 2
+* [Country code]:
+o Begins with “+”
+o 1 or 2 digits in length
+o Examples:
+* +9
+* +99
+* [Area code]:
+o 3 digits in length
+o Optionally enclosed within parenthesis
+o Examples
+* 999
+* (999)
+* [Grouping number]
+o 3 digits in length
+o Examples
+* 999
+* [Subscriber number]
+o 3 digits in length
+o Examples
+* 999
+* [Separator]
+o Space
+o Dash “-”
+o Period “.”
+Valid examples:
++9 (999) 999-9999
++99-999-999-9999
++9-(999)-999-9999
++9 (999).999.9999
++9.(999)-999 9999
+Original String Expected Result
+Ad 537-457-6367 458 5374576367
+Sjnv (344)483-5827 3548jdfv 3444835827
+>(452).486.7593”< 4524867593
+>981.496.8134”< 9814968134
+S ask>”+1 642 942.9531”<> 16429429531
+>”asj+52 (374)-435-1641”< >mc +1-301.659-8431<>(jhjb 523744351641
+13016598431
+(saj) (3285) (341) (213)-734.7263 (432) 325.942.1948 2137347263
+3259421948
+"""
+
+In [199]: p = re.compile(r'\+[0-9]{1,2} ?-?.?\(?[0-9][0-9][0-9]\)? ?-?.?[0-9][0-9][0-9] ?-?.?[0-9][0-9][0-9][0-9]')
+
+In [200]: p.findall("+9 (999) 999 9999")
+Out[200]: ['+9 (999) 999 9999']
+
+In [201]: p.findall("+9-(999).999 9999")
+Out[201]: ['+9-(999).999 9999']
+
+In [202]: p.findall("+9-(999).999-9999")
+Out[202]: ['+9-(999).999-9999']
+
+In [203]: p.findall("+9-999.999 9999")
+Out[203]: ['+9-999.999 9999']
