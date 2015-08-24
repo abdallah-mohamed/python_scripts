@@ -1,0 +1,38 @@
+"""
+ Given the string “tall twirling streets streams treats”. Write a regular
+expression that match:
+* the second and fourth “t”
+expected result: tall twirling streets streams treats
+* the second “t” in “streets” and the second “t” in “treats”
+expected result: tall twirling streets streams treats
+* the first “t” in each word
+expected result: tall twirling streets streams treats
+"""
+
+import re
+
+#1: match_second_and_fourth_t:
+    
+    In [171]: p = re.compile(r'\w+ s\e?t')
+    
+    In [172]: p.findall("tall twirling streets streams treats")
+    Out[172]: ['twirling st', 'reets st']
+    
+    
+
+#2: match_second_t_in_streets_and_treats:
+
+    In [106]: p = re.compile(r'ts\b')
+    
+    In [107]: p.findall("tall twirling streets streams treats")
+    Out[107]: ['ts', 'ts']
+
+
+#3 match_first_t_in_each_word:
+
+    In [52]: p = re.compile('\\b.?t')
+
+    In [53]: match_obj = p.findall("tall twirling streets streams treats")
+    
+    In [54]: p.findall("tall twirling streets streams treats")
+    Out[54]: ['t', ' t', 'st', 'st', ' t']
