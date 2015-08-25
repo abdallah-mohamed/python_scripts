@@ -1,0 +1,18 @@
+"""
+3) Assume you are parsing a TSV (Tab Separated Values) with improperly escaped
+double quotes ("). Write a SINGLE regular expression to produce results below:
+Original String Expected Result
+
+"data"->test string->"end" "data"->test string->"end"
+"data"->test" string->"end" "data"->test' string->"end"
+"data"->test"" string->"end" "data"->test'' string->"end"
+"data"->"test"string"->"end" "data"->test'string->"end"
+"data"->""->"end" "data"->""->"end"
+"data"->"->"end" "data"->'->"end"
+"data"->"""->"end" "data"->"'"->"end"
+"data"->"""""->"end" "data"->"'''"->"end"
+"data"->""foo"->"end" "data"->"'foo"->"end"
+"data"->"foo""->"end" "data"->"foo'"->"end"
+"""
+
+TOO hard to do with only regular expression.

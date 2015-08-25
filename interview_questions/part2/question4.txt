@@ -1,0 +1,21 @@
+"""
+4) Write a single regular expression to retrieve the inner most text between the
+characters "<>".
+Original String Expected Result
+<ashgd> ashgd
+<<<daf>>> daf
+<dfsgs<dfghas rg<gfd < fdg gfd gda > cbn > hfh >
+>
+fdg gfd gda
+<"""<""<"""<">""""">""">""""> "
+<dfgfdh<sfdfg<s d ghukil "^$>trfsanj yjx>
+xfjyf8df>fas >
+s d ghukil "^$
+<#%$^WGdfvg<54wr<xdcv<blsdl sea&%^#$(>>>> blsdl sea&%^#$(
+<<<<df &3 * df ^dj3>bn7 a6>vcs; 8e> a7gdfwkhjbc fg5467
+&5>
+df &3 * df ^dj3
+"""
+
+
+Too Hard to do with single regular expression
